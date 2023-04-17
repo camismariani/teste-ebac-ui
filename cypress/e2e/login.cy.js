@@ -15,6 +15,7 @@ context('funcionalidade login', () => {
         cy.get('#username').type(Cypress.env('env_usuario'))
         cy.get('#password').type(Cypress.env('env_password'), { log: false })
 
+
         //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
 
@@ -23,8 +24,9 @@ context('funcionalidade login', () => {
         cy.get('.page-title').should('contain', 'Minha conta')
     })
 
-    it.only('Deve fazer login com sucesso - command', () => {
-        cy.login(Cypress.env('env_usuario'),Cypress.env('env_password'))
+
+    it('Deve fazer login com sucesso - command', () => {
+        cy.login(Cypress.env('env_usuario'), Cypress.env('env_password'))
 
     });
 
@@ -82,5 +84,6 @@ context('funcionalidade login', () => {
         // captura o elemento e verifica se o texto contem o que foi escrito na condição
         cy.get('.woocommerce-error > li').should('contain', 'Se você não está certo de seu nome de usuário, experimente o endereço de e-mail.')
     })
+
 
 })
